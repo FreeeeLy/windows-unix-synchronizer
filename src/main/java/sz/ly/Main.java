@@ -12,18 +12,25 @@ import java.util.List;
  */
 public class Main {
 
+    //Directory in Windows
     private static String srcDir = "";
 
+    //Directory in Unix
     private static String dstDir = "";
 
+    //The file type(suffix),which you need to sync,in Windows
     private static List<String> fileTypes = Arrays.asList();
 
+    //The ip of unix machine
     private static String unixHost = "";
 
+    //FTP port
     private static int ftpPort = 21;
 
+    //Unix username
     private static String username = "";
 
+    //Unix password
     private static String password = "";
 
     public static void main(String[] args) throws IOException {
