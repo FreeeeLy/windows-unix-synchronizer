@@ -5,16 +5,32 @@ import sz.ly.listener.DirChangeListener;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Ly on 2017/9/26.
  */
 public class Main {
+
+    private static String srcDir = "";
+
+    private static String dstDir = "";
+
+    private static List<String> fileTypes = Arrays.asList();
+
+    private static String unixHost = "";
+
+    private static int ftpPort = 21;
+
+    private static String username = "";
+
+    private static String password = "";
+
     public static void main(String[] args) throws IOException {
-        SyncToUnix syncToUnix = new SyncToUnix("E:\\git\\Mit6.824\\src", Arrays.asList(".go"), "/home/ly/Mit6.824/src");
-        syncToUnix.connect("192.168.117.129", 21);
-        syncToUnix.login("ly", "ly");
-        DirChangeListener listener = new DirChangeListener("E:\\git\\Mit6.824\\src", syncToUnix);
+        SyncToUnix syncToUnix = new SyncToUnix(srcDir, fileTypes, dstDir);
+        syncToUnix.connect(unixHost, ftpPort);
+        syncToUnix.login(username, password);
+        DirChangeListener listener = new DirChangeListener(srcDir, syncToUnix);
         listener.start();
     }
 }
